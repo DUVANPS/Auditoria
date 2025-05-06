@@ -11,7 +11,6 @@ public class Main {
         int[] valorPreguntas = new int[10];
         int[] respuestasPregunta = new int[10];
 
-
         //Capturar datos
         while (respuestaMenu != 0) {
 
@@ -26,6 +25,13 @@ public class Main {
                     break;
 
                 case 1: {
+                    if(preguntas[9] != null) {
+                        System.out.println("Las preguntas fueron capturadas, desea agregar nuevas? 1) Si, 2) No");
+                        System.out.println();
+                        if (teclado.nextInt() != 1){
+                            break;
+                        }
+                    }
                     for (int i = 0; i < preguntas.length; i++) {
                         teclado.nextLine();
                         System.out.println("Introduce tu pregunta numero " + (i + 1));
@@ -41,19 +47,36 @@ public class Main {
                         System.out.println();
                         break;
                     }
+                    System.out.println("preguntas[9] " + preguntas[9]);
+                    if(respuestasPregunta[9] != 0) {
+                        System.out.println("Las preguntas fueron respondidas, desea responder nuevamente? 1) Si, 2) No");
+                        System.out.println();
+                        if (teclado.nextInt() != 1){
+                            break;
+                        }
+                    }
                     for(int i = 0; i < preguntas.length; i++) {
-                        System.out.println("Responde 1 para SI y 2 para NO a las siguientes preguntas... ");
+                        System.out.println("Responde 1 para SI y 2 para NO a la siguiente pregunta: ");
                         System.out.println();
                         System.out.println((i + 1) + ") " + preguntas[i]);
                         respuestasPregunta[i] = teclado.nextInt();
                     }
+
                     break;
                 }
                 case 3: {
                     int calculoTotal = 0;
-                    for(int i = 0; i < preguntas.length; i++){
-
+                    int valorTotalPreguntas = 0;
+                    for(int i = 0; i < valorPreguntas.length; i++){
+                        valorTotalPreguntas += valorPreguntas[i];
                     }
+                    for(int i = 0; i < preguntas.length; i++){
+                        if(respuestasPregunta[i] == 1){
+                            calculoTotal = calculoTotal + valorPreguntas[i];
+                        }
+                    }
+                    System.out.println("El resultado de la encuneta es:");
+                    System.out.println((calculoTotal / valorTotalPreguntas) * 100 + "%");
                 }
             }
         }
