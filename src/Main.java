@@ -67,16 +67,24 @@ public class Main {
                 case 3: {
                     int calculoTotal = 0;
                     int valorTotalPreguntas = 0;
+                    float porcentajeTotal = 0;
                     for(int i = 0; i < valorPreguntas.length; i++){
                         valorTotalPreguntas += valorPreguntas[i];
                     }
-                    for(int i = 0; i < preguntas.length; i++){
+                    for(int i = 0; i < respuestasPregunta.length; i++){
                         if(respuestasPregunta[i] == 1){
-                            calculoTotal = calculoTotal + valorPreguntas[i];
+                            calculoTotal += valorPreguntas[i];
                         }
                     }
+
+
+                    System.out.println("calculoTotal: " + calculoTotal);
+                    System.out.println("valorTotalPreguntas :" + valorTotalPreguntas);
+
+                    porcentajeTotal = (float)(calculoTotal / valorTotalPreguntas) * 100;
+
                     System.out.println("El resultado de la encuneta es:");
-                    System.out.println((calculoTotal / valorTotalPreguntas) * 100 + "%");
+                    System.out.println( porcentajeTotal);
                 }
             }
         }
