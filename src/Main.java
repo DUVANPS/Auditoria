@@ -65,8 +65,8 @@ public class Main {
                     break;
                 }
                 case 3: {
-                    int calculoTotal = 0;
-                    int valorTotalPreguntas = 0;
+                    float calculoTotal = 0;
+                    float valorTotalPreguntas = 0;
                     float porcentajeTotal = 0;
                     for(int i = 0; i < valorPreguntas.length; i++){
                         valorTotalPreguntas += valorPreguntas[i];
@@ -81,10 +81,11 @@ public class Main {
                     System.out.println("calculoTotal: " + calculoTotal);
                     System.out.println("valorTotalPreguntas :" + valorTotalPreguntas);
 
-                    porcentajeTotal = (float)(calculoTotal / valorTotalPreguntas) * 100;
+                    porcentajeTotal = (calculoTotal / valorTotalPreguntas) * 100;
 
-                    System.out.println("El resultado de la encuneta es:");
-                    System.out.println( porcentajeTotal);
+                    System.out.println("El res1ultado de la encuneta es:");
+                    System.out.println( porcentajeTotal + "%");
+                    System.out.println( "----------------------");
                 }
             }
         }
